@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_attendance_tree" model="ir.ui.view">
+        <field name="name">hr.attendance.inherit.view</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="multi_edit">1</attribute>
+            </xpath>
+            <field name="employee_id" position="after">
+                <field name="resource_calendar_id" optional="hide" />
+            </field>
+            <field name="worked_hours" position="after">
+                <field name="valid_worked_hours" widget="float_time" />
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_attendance_view_form" model="ir.ui.view">
+        <field name="name">hr.attendance.view</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form" />
+        <field name="arch" type="xml">
+            <field name="check_out" position="after">
+                <field name="resource_calendar_id" />
+            </field>
+            <field name="worked_hours" position="after">
+                <field name="valid_worked_hours" widget="float_time" />
+            </field>
+        </field>
+    </record>
+</odoo>
