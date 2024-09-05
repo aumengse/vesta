@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="studio_customization.execute_code_3aaa801f-fdb5-40d9-b05c-53aa0d2f0fa7" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: environment on which the action is triggered
+#  - model: model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: utility function to compare floats based on specific precision
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - _logger: _logger.info(message): logger to emit messages in server logs
+#  - UserError: exception class for raising user-facing warning messages
+#  - Command: x2many commands namespace
+# To return an action, assign: action = {...}
+
+# Update the Project number after a minute
+record.update({'x_studio_job_id':env['ir.sequence'].next_by_code('seq_project_job_id')})
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="project.model_project_project"/>
+    <field name="name">Execute Code</field>
+    <field name="sequence">5</field>
+    <field name="state">code</field>
+  </record>
+</odoo>
