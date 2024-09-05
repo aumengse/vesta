@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="contacts.res_partner_menu_config" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('sales_team.group_sale_manager'), ref('base.group_system')])]"/>
+    <field name="name">Configuration</field>
+    <field name="parent_id" ref="contacts.menu_contacts"/>
+    <field name="sequence">3</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.contacts_contacts_0a7033e2-da17-4816-b1ba-bae84793f8b6" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="base.action_open_website"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Contacts</field>
+    <field name="parent_id" ref="contacts.menu_contacts"/>
+    <field name="sequence">1</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="contacts.res_partner_menu_contacts" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="contacts.action_contacts"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">All (Contacts)</field>
+    <field name="parent_id" ref="studio_customization.contacts_contacts_0a7033e2-da17-4816-b1ba-bae84793f8b6"/>
+    <field name="sequence">1</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.contacts_customers_096262c2-5f20-45b1-8c53-c430524eb2fa" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.customers_f86470e9-71a0-42b6-aabe-67174809570a"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Customers</field>
+    <field name="parent_id" ref="studio_customization.contacts_contacts_0a7033e2-da17-4816-b1ba-bae84793f8b6"/>
+    <field name="sequence">2</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.contacts_vendors_b7495eb7-c384-4baa-adb7-c8f472ae566a" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.vendors_68c8aa62-e70d-4c69-a5f3-3b007f21ffd6"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Vendors</field>
+    <field name="parent_id" ref="studio_customization.contacts_contacts_0a7033e2-da17-4816-b1ba-bae84793f8b6"/>
+    <field name="sequence">3</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.product2_03da71c8-8f26-48ab-b8a6-7c625bc6a0c8" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Products</field>
+    <field name="parent_id" eval="False"/>
+    <field name="sequence">10</field>
+    <field name="web_icon">fa fa-rocket,#262c34,#FFFFFF</field>
+  </record>
+  <record id="studio_customization.product2_product2_d1d981b6-63dd-4fa6-8fee-1718e112dbad" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.product2_4439e0e3-1d94-4fab-a397-9303cb600137"/>
+    <field name="active" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Product2</field>
+    <field name="parent_id" ref="studio_customization.product2_03da71c8-8f26-48ab-b8a6-7c625bc6a0c8"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.product2_products3_8e2252a1-62a7-496d-b5c4-1239c39ec48c" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.products3_73a7f449-c898-46e2-b3eb-727e66b851aa"/>
+    <field name="active" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Products3</field>
+    <field name="parent_id" ref="studio_customization.product2_03da71c8-8f26-48ab-b8a6-7c625bc6a0c8"/>
+    <field name="sequence">11</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.products_23_423fd954-5890-4a19-86cd-82573334b1ba" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.23_b8c71832-b98b-4412-ad26-48bcd8db5e8b"/>
+    <field name="active" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">23</field>
+    <field name="parent_id" ref="studio_customization.product2_03da71c8-8f26-48ab-b8a6-7c625bc6a0c8"/>
+    <field name="sequence">12</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.products_5a856e7c-ba86-4998-a3c7-7d3de30bbbbe" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Products</field>
+    <field name="parent_id" eval="False"/>
+    <field name="sequence">10</field>
+    <field name="web_icon">fa fa-rocket,#FFFFFF,#34495e</field>
+  </record>
+  <record id="studio_customization.products_products_d67bd4b6-7f70-406a-b7ea-2c2adb3f0665" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.products_1d385b0c-1eed-44dd-ad5f-0c06eac62d31"/>
+    <field name="active" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Products</field>
+    <field name="parent_id" ref="studio_customization.products_5a856e7c-ba86-4998-a3c7-7d3de30bbbbe"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.products_test_0bd8fdf2-b959-4283-9553-dead9aacbd28" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.test_ec7923b8-fe1c-41cc-a133-d0fe7fa08357"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Products</field>
+    <field name="parent_id" ref="studio_customization.product2_03da71c8-8f26-48ab-b8a6-7c625bc6a0c8"/>
+    <field name="sequence">13</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+</odoo>
