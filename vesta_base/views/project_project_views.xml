@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="project_list_view_group_stage" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="name">project.project.tree</field>
+        <field name="inherit_id" ref="project.project_list_view_group_stage" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='is_favorite']" position="after">
+                <field name="va_job_id" optional="show" />
+                <field name="va_quote_legacy" optional="show" />
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="column_invisible">False</attribute>
+                <attribute name="invisible">False</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <xpath expr="//field[@name='display_name']" position="move" />
+                <field
+                    name="va_contract_value"
+                    optional="show"
+                    sum="Sum of Contract Value"
+                />
+                <field
+                    optional="show"
+                    name="va_left_to_bill"
+                    options="{&quot;digits&quot;:[4,2],&quot;currency_field&quot;:&quot;currency_id&quot;}"
+                    widget="monetary"
+                    sum="Sum of Left To Bill"
+                />
+                <field
+                    optional="show"
+                    name="va_cost_to_complete"
+                    widget="monetary"
+                    options="{&quot;currency_field&quot;:&quot;currency_id&quot;}"
+                    sum="Sum of Cost to Complete"
+                />
+                <field name="va_customer_po" optional="show" />
+                <field name="currency_id" column_invisible="True" />
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="va_award_date" optional="show" />
+                <field optional="show" name="va_anticipated_completion" />
+                <field
+                    optional="show"
+                    name="va_complete_prog"
+                    widget="percentage"
+                    avg="Average of Prog"
+                />
+                <field
+                    optional="show"
+                    name="va_complete_cad"
+                    widget="percentage"
+                    avg="Average of CAD"
+                />
+                <field
+                    optional="show"
+                    name="va_complete_panel"
+                    widget="percentage"
+                    avg="Average of Panel"
+                />
+                <field
+                    optional="show"
+                    name="va_complete_electrical"
+                    widget="percentage"
+                    avg="Average of Electrical"
+                />
+                <field
+                    optional="show"
+                    name="va_complete_parts"
+                    widget="percentage"
+                    avg="Average of Parts Rcvd"
+                />
+                <field optional="show" name="va_comments_legacy" />
+            </xpath>
+            <xpath expr="//field[@name='display_name']" position="attributes">
+                <attribute name="string">Project Name</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="edit_project" model="ir.ui.view">
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="model">project.project</field>
+        <field name="name">project.project.form</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='extra_settings']" position="replace" />
+            <xpath
+                expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='partner_id']"
+                position="before"
+            >
+                <field name="va_job_id" help="V01234" required="False" />
+                <field name="va_quote_legacy" />
+                <field name="va_customer_po" />
+            </xpath>
+            <xpath
+                expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='partner_id']"
+                position="attributes"
+            >
+                <attribute name="invisible">False</attribute>
+            </xpath>
+            <xpath
+                expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='partner_id']"
+                position="after"
+            >
+                <field name="va_contract_value" />
+                <field name="currency_id" />
+            </xpath>
+            <xpath expr="//field[@name='active']" position="after">
+                <xpath expr="//field[@name='tag_ids']" position="move" />
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="va_award_date" />
+            </xpath>
+            <xpath expr="//field[@name='date_start']" position="attributes">
+                <attribute name="string">Anticipated Project Dates</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date_start']" position="after">
+                <field name="va_completed_date" />
+            </xpath>
+            <xpath expr="//div[@name='alias_def']" position="after">
+                <xpath expr="//field[@name='label_tasks']" position="move" />
+                <field name="va_show_design" />
+                <field name="va_show_ordering" />
+                <field name="va_show_panel_build" />
+                <field name="va_show_field_install" />
+                <field name="va_show_programming" />
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                <page string="Admin" name="studio_page_6sa_1hti7gk66">
+                    <group name="studio_group_6sa">
+                        <group name="studio_group_6sa_left">
+                            <field name="va_left_to_bill" widget="monetary" />
+                            <field name="va_cost_to_complete" widget="monetary" />
+                            <field name="va_anticipated_completion" />
+                            <field name="va_comments_legacy" />
+                        </group>
+                        <group name="studio_group_6sa_right">
+                            <field name="va_complete_prog" widget="percentage" />
+                            <field name="va_complete_cad" widget="percentage" />
+                            <field name="va_complete_panel" widget="percentage" />
+                            <field name="va_complete_electrical" widget="percentage" />
+                            <field name="va_complete_parts" widget="percentage" />
+                        </group>
+                    </group>
+                </page>
+                <page
+                    string="Design"
+                    name="studio_page_2nc_1hti7h81l"
+                    invisible="not va_show_design"
+                >
+                    <group name="studio_group_2nc">
+                        <group name="studio_group_2nc_left" />
+                        <group name="studio_group_2nc_right" />
+                    </group>
+                </page>
+                <page
+                    string="Ordering"
+                    name="studio_page_925_1hti7j4gn"
+                    invisible="not va_show_ordering"
+                >
+                    <group name="studio_group_925">
+                        <group name="studio_group_925_left" />
+                        <group name="studio_group_925_right" />
+                    </group>
+                </page>
+                <page
+                    string="Panel Build"
+                    name="studio_page_7hc_1hti7j856"
+                    invisible="not va_show_panel_build"
+                >
+                    <group name="studio_group_7hc">
+                        <group name="studio_group_7hc_left" />
+                        <group name="studio_group_7hc_right" />
+                    </group>
+                </page>
+                <page
+                    string="Field Installation"
+                    name="studio_page_1k3_1hti7jane"
+                    invisible="not va_show_field_install"
+                >
+                    <group name="studio_group_1k3">
+                        <group name="studio_group_1k3_left" />
+                        <group name="studio_group_1k3_right" />
+                    </group>
+                </page>
+                <page
+                    string="Programming"
+                    name="studio_page_5n3_1hti7jdho"
+                    invisible="not va_show_programming"
+                >
+                    <group name="studio_group_5n3">
+                        <group name="studio_group_5n3_left" />
+                        <group name="studio_group_5n3_right" />
+                    </group>
+                </page>
+                <page string="Closeout" name="studio_page_4pr_1hti7pspn">
+                    <group name="studio_group_4pr">
+                        <group name="studio_group_4pr_left" />
+                        <group name="studio_group_4pr_right" />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

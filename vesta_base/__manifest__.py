@@ -12,6 +12,6 @@
     "license": "LGPL-3",
     "depends": ["studio_customization"],
     "data": [
-        # "views/hr_attendance_views.xml",
+        # "views/project_project_views.xml",
     ],
 }
