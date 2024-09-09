@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record
+        id="documents_view_list"
+        model="ir.ui.view"
+    >
+        <field name="inherit_id" ref="documents.documents_view_list" />
+        <field name="model">documents.document</field>
+        <field name="name">documents.document.tree</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='owner_id']" position="after">
+                    <field optional="show" name="va_file_category" />
+                    <field optional="show" name="va_file_project" />
+                    <field optional="show" name="va_file_salesorder" />
+                </xpath>
+            </data>
+        </field>
+    </record>
+</odoo>

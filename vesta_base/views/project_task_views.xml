@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record
+        id="open_view_all_tasks_list_view"
+        model="ir.ui.view"
+    >
+        <field name="inherit_id" ref="project.open_view_all_tasks_list_view" />
+        <field name="model">project.task</field>
+        <field name="name">project.task.tree</field>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='user_ids']" position="after">
+                <field optional="show" name="va_project_stage" />
+            </xpath>
+        </field>
+
+    </record>
+    <record
+        id="view_task_form2"
+        model="ir.ui.view"
+    >
+         <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="model">project.task</field>
+        <field name="name">project.task.form</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='milestone_id']" position="before">
+                <field
+                    name="va_project_stage"
+                    help="Project Stage this Task is associated with."
+                    options="{'no_create':true}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
