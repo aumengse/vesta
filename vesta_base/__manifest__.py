@@ -10,9 +10,12 @@
     "icon": "/vesta_base/static/img/icon.png",
     "version": "17.0.0.0.1",
     "license": "LGPL-3",
-    "depends": ["studio_customization", "purchase"],
+    "depends": ["studio_customization","purchase"],
     "data": [
-        # "views/project_project_views.xml",
-        # "views/product_template_views.xml",
+        "views/res_partner_views.xml",
+        "views/project_project_views.xml",
+        "views/product_template_views.xml",
+        "views/project_task_views.xml",
+        "views/documents_document_views.xml",
     ],
 }
