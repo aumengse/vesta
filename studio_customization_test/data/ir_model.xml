@@ -1,6 +1,10 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <odoo>
-  <record id="studio_customization.products_2161572b-220d-42d1-a278-63b8b61119ae" model="ir.model" context="{'studio': True}">
+  <record
+        id="studio_customization.products_2161572b-220d-42d1-a278-63b8b61119ae"
+        model="ir.model"
+        context="{'studio': True}"
+    >
     <field name="info"> Main super-class for regular database-persisted Odoo models.
 
     Odoo models are created by inheriting from this class::
@@ -11,11 +15,11 @@
     The system will later instantiate the class once per database (on
     which the class' module is installed).
     </field>
-    <field name="is_mail_thread" eval="True"/>
-    <field name="is_mail_activity" eval="True"/>
+    <field name="is_mail_thread" eval="True" />
+    <field name="is_mail_activity" eval="True" />
     <field name="model">x_products</field>
     <field name="name">Products</field>
     <field name="state">manual</field>
-    <field name="transient" eval="False"/>
+    <field name="transient" eval="False" />
   </record>
 </odoo>

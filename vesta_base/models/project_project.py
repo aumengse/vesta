@@ -24,3 +24,5 @@ class ProjectProject(models.Model):
     va_show_ordering = fields.Boolean(string="Show Ordering")
     va_show_panel_build = fields.Boolean(string="Show Panel Build")
     va_show_programming = fields.Boolean(string="Show Programming")
+
+
